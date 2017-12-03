@@ -18,10 +18,11 @@
         url: https://rhevm.selfip.net/ovirt-engine/api
         insecure: True
       name: rhtbovm05.cluster.local
-      template: rhelTinyTemplate
+      template: tbo01
       cluster: Default
       memory: 1GiB
       high_availability: False
+      clone: True
       cloud_init:
         nic_boot_protocol: static
         nic_ip_address: 192.168.2.165
