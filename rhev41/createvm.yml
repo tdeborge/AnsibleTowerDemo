@@ -7,6 +7,7 @@
   - name: Obtain SSO token using username/password creds.
     ovirt_auth:
           url: https://rhevm.selfip.net/ovirt-engine/api
+          insecure: True
           username: admin@internal
           password: "redhat123"
   - name: Creating RHEL-7 VM
@@ -15,6 +16,7 @@
         username: admin@internal
         password: "redhat123"
         url: https://rhevm.selfip.net/ovirt-engine/api
+        insecure: True
       template: TinyLocalTemplate
       cluster: Default
       memory: 1GiB
