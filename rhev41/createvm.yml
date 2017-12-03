@@ -9,7 +9,7 @@
           url: https://rhevm.selfip.net/ovirt-engine/api
           username: admin@internal
           ca_file: pki-resource.cer
-          password: redhat123
+          password: "redhat123"
   - ovirt_vms:
     name: Creating RHEL-7 VM
     template: TinyLocalTemplate
