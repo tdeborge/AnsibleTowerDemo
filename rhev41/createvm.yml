@@ -5,7 +5,7 @@
   name: Create VM from Template
   tasks:
   - name: Obtain SSO token using username/password creds.
-        ovirt_auth:
+    ovirt_auth:
           url: https://rhevm.selfip.net/ovirt-engine/api
           username: admin@internal
           ca_file: pki-resource.cer
