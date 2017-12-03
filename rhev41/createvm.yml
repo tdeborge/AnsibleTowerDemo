@@ -17,6 +17,7 @@
         password: "redhat123"
         url: https://rhevm.selfip.net/ovirt-engine/api
         insecure: True
+      name: rhtbovm05.cluster.local
       template: TinyLocalTemplate
       cluster: Default
       memory: 1GiB
