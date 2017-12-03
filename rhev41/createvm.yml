@@ -1,0 +1,28 @@
+---
+- hosts: all
+  gather_facts: True
+  become: True
+  name: Create VM from Template
+  tasks:
+  - name: Obtain SSO token using username/password creds.
+        ovirt_auth:
+          url: https://rhevm.selfip.net/ovirt-engine/api
+          username: admin@internal
+          ca_file: pki-resource.cer
+          password: redhat123
+  - ovirt_vms:
+    name: Creating RHEL-7 VM
+    template: TinyLocalTemplate
+    cluster: Default
+    memory: 1GiB
+    high_availability: False
+    cloud_init:
+      nic_boot_protocol: static
+      nic_ip_address: 192.168.2.165
+      nic_netmask: 255.255.252.0
+      nic_gateway: 192.168.2.1
+      nic_name: eth1
+      nic_on_boot: true
+      host_name: rhtbovm05.cluster.local
+      user_name: root
+      root_password: redhat123
