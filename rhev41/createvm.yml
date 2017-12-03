@@ -28,6 +28,6 @@
         nic_gateway: 192.168.2.1
         nic_name: eth1
         nic_on_boot: true
-      host_name: rhtbovm05.cluster.local
-      user_name: root
-      root_password: redhat123
+        host_name: rhtbovm05.cluster.local
+        user_name: root
+        root_password: redhat123
