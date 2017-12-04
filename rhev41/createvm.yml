@@ -17,7 +17,7 @@
         password: "redhat123"
         url: https://rhevm.selfip.net/ovirt-engine/api
         insecure: True
-      name: {{hostname}}
+      name: "{{hostname}}"
       template: rhelTinyTemplate
       cluster: Default
       memory: 1GiB
@@ -25,12 +25,12 @@
       clone: True
       cloud_init:
         nic_boot_protocol: static
-        nic_ip_address: {{ipaddress}}
-        nic_netmask: {{subnet}}
-        nic_gateway: {{gateway}}
-        dns_servers: {{dns1}},{{dns2}}
+        nic_ip_address: "{{ipaddress}}"
+        nic_netmask: "{{subnet}}"
+        nic_gateway: "{{gateway}}"
+        dns_servers: "{{dns1}}","{{dns2}}"
         nic_name: eth0
         nic_on_boot: true
-        host_name: {{hostname}}
+        host_name: "{{hostname}}"
         user_name: root
         root_password: redhat123
