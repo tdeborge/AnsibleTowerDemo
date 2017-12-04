@@ -28,7 +28,7 @@
         nic_ip_address: "{{ipaddress}}"
         nic_netmask: "{{subnet}}"
         nic_gateway: "{{gateway}}"
-        dns_servers: "{{dns1}}" "{{dns2}}"
+        dns_servers: "{{dns1}}"
         nic_name: eth0
         nic_on_boot: true
         host_name: "{{hostname}}"
