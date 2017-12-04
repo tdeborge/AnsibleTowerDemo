@@ -1,0 +1,27 @@
+---
+- name: Ensure truckdemo folder exists.
+  file:
+    path: /home/pi/truckdemo
+    state: directory
+    mode: 0755
+- name: Copy the simulator for kura jar file
+  copy:
+    src: templates/kapua-simulator-kura-0.2.0-SNAPSHOT-app.jar
+    dest: /home/pi/truckdemo
+    owner: pi
+    group: pi
+    mode: 0644   
+- name: Copy the json simulator definition file
+  copy:
+    src: templates/truck.{{ansible_nodename}}.json
+    dest: /home/pi/truckdemo/truck.json
+    owner: pi
+    group: pi
+    mode: 0644
+- name: Copy the simulator start stop script
+  template:
+    src: templates/simulator.sh.j2
+    dest: /home/pi/truckdemo/simulator.sh
+    owner: pi
+    group: pi
+    mode: 0755 

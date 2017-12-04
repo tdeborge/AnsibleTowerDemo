@@ -1,0 +1,7 @@
+---
+- hosts: picluster
+  become: yes
+  roles:
+    - javarole
+    - ledsrole
+#    - truckrole

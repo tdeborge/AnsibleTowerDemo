@@ -1,0 +1,7 @@
+---
+- hosts: picluster
+  gather_facts: False
+  become: false
+  name: Stopping the Trucks
+  tasks:
+  - shell: /home/pi/truckdemo/simulator.sh stop

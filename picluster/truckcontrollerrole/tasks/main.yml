@@ -1,0 +1,38 @@
+---
+- name: Ensure truckcontrollerdemo folder exists.
+  file:
+    path: /home/pi/truckcontrollerdemo
+    state: directory
+    mode: 0755
+- name: Ensure resources folder exists.
+  file:
+    path: /home/pi/truckcontrollerdemo/resources
+    state: directory
+    mode: 0755
+- name: Copy the simulator manager jar file
+  copy:
+    src: templates/TruckManager-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+    dest: /home/pi/truckcontrollerdemo
+    owner: pi
+    group: pi
+    mode: 0644   
+- name: Copy the manager properties file
+  copy:
+    src: templates/truckcontroller.{{ansible_nodename}}.properties
+    dest: /home/pi/truckcontrollerdemo/resources/truckcontroller.properties
+    owner: pi
+    group: pi
+    mode: 0644
+- name: Copy the simulator start stop script
+  copy:
+    src: templates/truckcontroller.sh
+    dest: /home/pi/truckcontrollerdemo/truckcontroller.sh
+    owner: pi
+    group: pi
+    mode: 0755 
+- name: Set up cron jobs for LED control.
+  cron:
+    name: start the TruckManager app
+    special_time: reboot
+    job: rm -rf /home/pi/truckcontrollerdemo/app.*;/home/pi/truckcontrollerdemo/truckcontroller.sh start
+  

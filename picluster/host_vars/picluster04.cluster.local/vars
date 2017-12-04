@@ -1,0 +1,4 @@
+---
+ksim_base_name: "RBPI-Truck-4"
+ksim_broker_host: "broker-redhat-iot.ocpapps.selfip.net"
+ksim_broker_port: "31883"

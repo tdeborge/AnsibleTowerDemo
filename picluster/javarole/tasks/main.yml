@@ -1,0 +1,17 @@
+---
+#- name: ping
+#  ping:
+
+#- name: update the cache
+#  apt:
+#    update_cache: yes
+
+#- name: Update all packages to the latest version
+#  apt:
+#    upgrade: dist
+
+- name: java 8 Installation
+  apt:
+    name: oracle-java8-jdk
+    state: present
+    

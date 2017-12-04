@@ -1,0 +1,11 @@
+---
+- hosts: picluster
+  become: no
+  pre_tasks:
+      - shell: rgb blue
+  
+  roles:
+    - truckrole
+
+  post_tasks:
+      - shell: rgb green

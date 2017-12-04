@@ -1,0 +1,79 @@
+{
+  "applications": {
+    "iot-demo": {
+      "scheduler": { "period": 1000 },
+        "topics": {
+            "trucks/truck-6": {
+                "metrics": {
+                    "rpm"       : { "generator": "rpm", "name": "value" },
+                    "temp"       : { "generator": "temp", "name": "value" },
+                    "oilpress"   : { "generator": "oilpress", "name": "value" }
+                }
+            },
+            "packages/pkg-6_1": {
+                "metrics": {
+                    "Ambient"  : { "generator": "ambient_temp" },
+                    "Light"    : { "generator": "lux" },
+                    "Humidity" : { "generator": "humidity" },
+                    "Pressure" : { "generator": "barometer" }
+                }
+            },
+            "packages/pkg-6_2": {
+                "metrics": {
+                    "Ambient"  : { "generator": "ambient_temp" },
+                    "Light"    : { "generator": "lux" },
+                    "Humidity" : { "generator": "humidity" },
+                    "Pressure" : { "generator": "barometer" }
+                }
+            },
+            "packages/pkg-6_3": {
+                "metrics": {
+                    "Ambient"  : { "generator": "ambient_temp" },
+                    "Light"    : { "generator": "lux" },
+                    "Humidity" : { "generator": "humidity" },
+                    "Pressure" : { "generator": "barometer" }
+                }
+            },
+            "packages/pkg-6_4": {
+                "metrics": {
+                    "Ambient"  : { "generator": "ambient_temp" },
+                    "Light"    : { "generator": "lux" },
+                    "Humidity" : { "generator": "humidity" },
+                    "Pressure" : { "generator": "barometer" }
+                }
+            },
+            "packages/pkg-6_5": {
+                "metrics": {
+                    "Ambient"  : { "generator": "ambient_temp" },
+                    "Light"    : { "generator": "lux" },
+                    "Humidity" : { "generator": "humidity" },
+                    "Pressure" : { "generator": "barometer" }
+                }
+            }
+        },
+      "generators": {
+        "rpm": {
+          "type": "sine", "period": 30000, "offset": 1200, "amplitude": 600
+        },
+        "temp": {
+          "type": "sine", "period": 60000, "shift": 100, "offset": 190, "amplitude": 40
+        },
+        "oilpress": {
+          "type": "sine", "period": 30000, "shift": 400, "offset": 50, "amplitude": 20
+        },
+        "ambient_temp": {
+          "type": "sine", "period": 100000, "offset": 25, "amplitude": 4
+        },
+        "lux": {
+          "type": "sine", "period": 100000, "shift": 45.5, "offset": 220, "amplitude": 90
+        },
+        "humidity": {
+          "type": "sine", "period": 432000, "offset": 70, "amplitude": 20
+        },
+        "barometer": {
+          "type": "sine", "period": 432000, "offset": 29.92, "amplitude": 0.5
+        }
+      }
+    }
+  }
+}
