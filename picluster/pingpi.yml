@@ -3,10 +3,12 @@
   gather_facts: true
   become: true
   name: Ping the PI Environment
-  pre_tasks:
-      - shell: rgb blue
+#  pre_tasks:
+#      - shell: rgb blue
   tasks:
+  - shell: rgb blue
   - ping:
+  - shell: rgb green
 
-  post_tasks:
-      - shell: rgb green
+#  post_tasks:
+#      - shell: rgb green
