@@ -1,14 +1,15 @@
 ---
 - hosts: all
-  gather_facts: true
+  gather_facts: False
   become: true
   name: Ping the PI Environment
 #  pre_tasks:
 #      - shell: rgb blue
-  tasks:
-  - shell: rgb blue
-  - ping:
-  - shell: rgb green
-
+#  tasks:
+#  - shell: rgb blue
+#  - ping:
+#  - shell: rgb green
+  roles:
+    - pingrole
 #  post_tasks:
 #      - shell: rgb green
