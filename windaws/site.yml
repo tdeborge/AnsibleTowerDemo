@@ -1,0 +1,19 @@
+---
+- name: Testing using the chocolatey module
+  hosts: windows
+
+  tasks:
+   - name: Running the ipconfig command
+     raw: ipconfig
+     register: ipconfig
+
+   - debug:
+       var: ipconfig
+
+   - name: Use Chocolatey to install git
+     win_chocolatey: 
+       name: git
+
+   - name: Use Chocolatey to install notepad++
+     win_chocolatey: 
+       name: notepadplusplus.install

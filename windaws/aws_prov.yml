@@ -1,0 +1,42 @@
+---
+- name: Provisioning some AWS stuff
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  vars_files:
+    - secret.yml
+
+  tasks:
+    - name: Find the current windows AMI in region
+      ec2_ami_find:
+        region: "{{ ec2_region }}"
+        platform: windows
+        virtualization_type: hvm
+        owner: amazon
+        name: Windows_Server-2012-R2_RTM-English-64Bit-Base-*
+        no_result_action: fail
+        sort: name
+        sort_order: descending
+      register: found_amis
+
+    - set_fact:
+        win_ami_id: "{{ (found_amis.results | first).ami_id }}"
+
+    - name: Provision a set of instances
+      ec2:
+        group: "{{ ec2_security_group }}"
+        type: "{{ ec2_instance_type }}"
+        image: "{{ win_ami_id }}"
+        region: "{{ ec2_region }}"
+        instance_tags: "{'ansible_group':'windows_webservers_tdeborge', 'type':'{{ ec2_instance_type }}', 'group':'{{ ec2_security_group }}', 'Name':'demo_tdeborge'}"
+        exact_count: "{{ ec2_instance_count }}"
+        count_tag:
+           Name: demo_tdeborge
+        wait: true
+        user_data: "{{ lookup('template', 'userdata.txt.j2') }}"
+      register: ec2
+
+      tags:
+        - web
+
+    - debug: var=ec2
